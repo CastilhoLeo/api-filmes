@@ -21,6 +21,7 @@ public class FilmeService {
     }
 
     public List<FilmeDTO> resultadoPesquisaSugestao(int id){
+
         return externalApiService.localizarFilmeSugestao(id);
     }
 

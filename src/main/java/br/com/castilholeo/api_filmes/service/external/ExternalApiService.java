@@ -2,6 +2,7 @@ package br.com.castilholeo.api_filmes.service.external;
 
 import br.com.castilholeo.api_filmes.dto.FilmeDTO;
 import br.com.castilholeo.api_filmes.dto.ResponsePesquisaFilme;
+import br.com.castilholeo.api_filmes.service.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -47,4 +48,16 @@ public class ExternalApiService {
 
             return lista;
         }
+
+    public FilmeDTO localizarFilmePeloId(int id) {
+
+        FilmeDTO filme = webClient.get()
+                .uri(String.format("https://api.themoviedb.org/3/movie/%d?language=pt-BR", id))
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTUzNDM3ODU3YzEyMmI5NGRhZGIwNTYwYTZjZjk2ZSIsIm5iZiI6MTcyNTQ5NzIxOC4yMDA3OTksInN1YiI6IjY2ZDhmZTFiYjFlZmIwZGNlYTlkOGVlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4HvyWGpjRxo2jkSIK8M-VmyUAFJjkpDoLWCH4TEKn7I")
+                .retrieve()
+                .bodyToMono(FilmeDTO.class)
+                .block();
+
+        return filme;
+    }
 }

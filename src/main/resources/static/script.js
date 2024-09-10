@@ -2,13 +2,11 @@ const inputPesquisaFilme = document.getElementById("pesquisaFilme");
 const optionList = document.getElementById("opcoesFilmes");
 const resultadoPesquisa = document.getElementById('listaResultadoPesquisa');
 const opcoesFilmes = document.getElementById('opcoesFilmes')
-var filmeSelecionado = 'filmeInicial'
 
 
 
 inputPesquisaFilme.addEventListener('input', function(){
-    if (inputPesquisaFilme.value.length > 2 && !(inputPesquisaFilme.value === filmeSelecionado)) {
-        console.log(!(inputPesquisaFilme.value === filmeSelecionado))
+    if (inputPesquisaFilme.value.length > 2 ) {
         pesquisaFilme(inputPesquisaFilme.value);
     }
     else{
@@ -27,7 +25,7 @@ function pesquisaFilme(filme) {
             option.textContent = filme.title
             option.id = filme.id;
             optionList.appendChild(option);
-
+            
             
         });
     });
@@ -63,4 +61,10 @@ function filmeSugestao(id) {
             listaResultadoPesquisa.appendChild(li);
         });
     });
+}
+
+function ajusteRecomendacao(filmes){
+
+
+
 }
