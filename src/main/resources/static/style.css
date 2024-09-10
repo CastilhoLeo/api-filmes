@@ -1,4 +1,76 @@
 img{
-    width: 120px;
-    height: 160px;
+    width: 85%;
+    
 }
+
+header{
+    background-color: rgb(49, 49, 77);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+
+    
+}
+
+header h1{
+    color: white;
+    margin: 0;
+    padding: 1%;
+}
+
+.pesquisa{
+    text-align: center;
+    margin-top: 1%;
+}
+
+.pesquisa input{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 7px;
+    width: 30%;
+    height: 5%;
+    text-align: center;
+}
+
+.divResultadoPesquisa{
+    margin-top: 1.5%;
+}
+
+.divResultadoPesquisa h2{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom:2%;
+}
+
+.listaResultadoPesquisa{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+    
+.listaResultadoPesquisa li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.listaResultadoPesquisa li h3 {
+   margin-top: 1%;
+   margin-bottom: 0;
+   width: 100%;
+}
+.listaResultadoPesquisa li h4 {
+    margin-top: 1%;
+ }
+
+
+
+
+
+
+

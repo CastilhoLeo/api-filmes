@@ -8,11 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>Filmes</h1>
+        <h1>Sugestão de Filmes</h1>
     </header>
 
-    <div id="pesquisa">
-        <label for="pesquisaFilme" class="pesquisaFilme">Filme</label>
+    <div id="pesquisa" class="pesquisa">
+        <label for="pesquisaFilme" class="pesquisaFilme"></label>
         <input type="text" name="pesquisaFilme" id="pesquisaFilme" list="opcoesFilmes" placeholder="Digite o nome do filme...">
             <datalist id="opcoesFilmes">
 
@@ -21,8 +21,9 @@
         
     </div>
 
-    <div >
-        <ul id="listaResultadoPesquisa">
+    <div class="divResultadoPesquisa" >
+        <h2>Sugestões de filmes com base em sua pesquisa:</h2>
+        <ul id="listaResultadoPesquisa" class="listaResultadoPesquisa">
 
         </ul>
     </div>

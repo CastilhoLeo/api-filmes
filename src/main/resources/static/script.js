@@ -56,10 +56,10 @@ function filmeSugestao(id) {
         listaResultadoPesquisa.innerHTML = '';
         data.forEach(filme => {
             const li = document.createElement('li');
-            li.innerHTML = `<h2>${filme.title}</h2>
-                            <h4>Nota: ${filme.vote_average}</h4>
-                            <img src="https://image.tmdb.org/t/p/original${filme.poster_path}"/>
-                            <p>${filme.overview}</p>`
+            li.innerHTML = `<img src="https://image.tmdb.org/t/p/original${filme.poster_path}"/>
+                            <h3>${filme.title}</h3>
+                            <h4>Nota: ${filme.vote_average}</h4>                           
+                            `
             listaResultadoPesquisa.appendChild(li);
         });
     });
