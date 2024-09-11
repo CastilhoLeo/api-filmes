@@ -24,8 +24,7 @@ function pesquisaFilme(filme) {
             const option = document.createElement('Option');
             option.textContent = filme.title
             option.id = filme.id;
-            optionList.appendChild(option);
-            
+            optionList.appendChild(option);            
             
         });
     });
@@ -39,8 +38,9 @@ inputPesquisaFilme.addEventListener('change', function() {
     
     if (selectedOption) {
         const id = selectedOption.id;
+
+        console.log(selectedOption)
         filmeSugestao(id);
-        
         
     }
 });
@@ -60,7 +60,7 @@ function filmeSugestao(id) {
                             `
             listaResultadoPesquisa.appendChild(li);
         });
-    });
+    })
 }
 
 function ajusteRecomendacao(filmes){
