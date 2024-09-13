@@ -16,7 +16,7 @@ inputPesquisaFilme.addEventListener('input', function(){
 
 function pesquisaFilme(filme) {
     
-    fetch(`http://localhost:8080/filme?filme=${filme}`)
+    fetch(`https://api-filmes-hgla.onrender.com/filme?filme=${filme}`)
     .then(response => response.json())
     .then(data => {
         optionList.innerHTML = '';
@@ -48,7 +48,7 @@ inputPesquisaFilme.addEventListener('change', function() {
 
 
 function filmeSugestao(id) {
-    fetch(`http://localhost:8080/sugestao/${id}`)
+    fetch(`https://api-filmes-hgla.onrender.com/sugestao/${id}`)
     .then(response => response.json())
     .then(data => {
         listaResultadoPesquisa.innerHTML = '';
