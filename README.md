@@ -1,6 +1,7 @@
 <h1 align = 'center'>API - SUGESTÕES DE FILMES</h1>
 
-![image](https://github.com/user-attachments/assets/5c4a8127-b59c-45d9-938f-c3d45ea7c09c)
+![image](https://github.com/user-attachments/assets/d8c6338a-984f-4bf6-9365-674088dac56d)
+
 
 <h2 align = 'center'>Descrição do projeto</h2>
 <p>Api desenvolvida para estudos de front-end e de consumo de API externa do The Movie Database.</p>
