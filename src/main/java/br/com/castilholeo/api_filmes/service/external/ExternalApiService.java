@@ -4,6 +4,7 @@ import br.com.castilholeo.api_filmes.dto.FilmeDTO;
 import br.com.castilholeo.api_filmes.dto.ResponsePesquisaFilme;
 import br.com.castilholeo.api_filmes.service.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,6 +20,9 @@ import java.util.List;
 @Service
 public class ExternalApiService {
 
+    @Value("${Barier}")
+    private String barier;
+
     private final WebClient webClient;
 
     public ExternalApiService(WebClient.Builder webClientBuilder) {
@@ -29,7 +33,7 @@ public class ExternalApiService {
 
         List<FilmeDTO> lista= webClient.get()
                 .uri(String.format("https://api.themoviedb.org/3/search/movie?query=%s&include_adult=false&language=pt-BR&page=1", filme))
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTUzNDM3ODU3YzEyMmI5NGRhZGIwNTYwYTZjZjk2ZSIsIm5iZiI6MTcyNTQ5NzIxOC4yMDA3OTksInN1YiI6IjY2ZDhmZTFiYjFlZmIwZGNlYTlkOGVlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4HvyWGpjRxo2jkSIK8M-VmyUAFJjkpDoLWCH4TEKn7I")
+                .header("Authorization", barier)
                 .retrieve()
                 .bodyToMono(ResponsePesquisaFilme.class).map(obj-> obj.getResults().stream().toList())
                 .block();
