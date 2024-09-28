@@ -9,6 +9,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,7 +18,7 @@ import reactor.core.publisher.Mono;
 import java.util.Collections;
 import java.util.List;
 
-@Service
+@Component
 public class ExternalApiService {
 
     @Value("${Barier}")
@@ -45,7 +46,7 @@ public class ExternalApiService {
 
             List<FilmeDTO> lista= webClient.get()
                     .uri(String.format("https://api.themoviedb.org/3/movie/%d/recommendations?language=pt-BR&page=1", id))
-                    .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTUzNDM3ODU3YzEyMmI5NGRhZGIwNTYwYTZjZjk2ZSIsIm5iZiI6MTcyNTQ5NzIxOC4yMDA3OTksInN1YiI6IjY2ZDhmZTFiYjFlZmIwZGNlYTlkOGVlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4HvyWGpjRxo2jkSIK8M-VmyUAFJjkpDoLWCH4TEKn7I")
+                    .header("Authorization", barier)
                     .retrieve()
                     .bodyToMono(ResponsePesquisaFilme.class).map(obj-> obj.getResults().stream().toList())
                     .block();
@@ -57,7 +58,7 @@ public class ExternalApiService {
 
         FilmeDTO filme = webClient.get()
                 .uri(String.format("https://api.themoviedb.org/3/movie/%d?language=pt-BR", id))
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTUzNDM3ODU3YzEyMmI5NGRhZGIwNTYwYTZjZjk2ZSIsIm5iZiI6MTcyNTQ5NzIxOC4yMDA3OTksInN1YiI6IjY2ZDhmZTFiYjFlZmIwZGNlYTlkOGVlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4HvyWGpjRxo2jkSIK8M-VmyUAFJjkpDoLWCH4TEKn7I")
+                .header("Authorization", barier)
                 .retrieve()
                 .bodyToMono(FilmeDTO.class)
                 .block();
